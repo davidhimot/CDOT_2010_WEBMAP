@@ -5,12 +5,46 @@
         <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
         <title>CDOT-2010-CrashData</title>
         <link rel="stylesheet" href="https://js.arcgis.com/4.6/esri/css/main.css"/>
+        <script>
+            var dojoConfig = {
+                has: {
+                    // Enable webgl for feature layer in MapView
+                    "esri-featurelayer-webgl": 1
+                }
+            };
+        </script>
         <script src="https://js.arcgis.com/4.6/"></script>
         <link rel = "stylesheet" href = "style/CDOT2010.css"/>
         <script src="js/CDOT2010.js"></script>
     </head>
     <body>
         <div id="viewDiv"></div>
-        <a href="https://icons8.com">Icon pack by Icons8</a>
-    </body>
-</html>
+
+        <div id="sliderContainer" class="esri-widget">
+            <span id="sliderValue"></span>
+            <div id="sliderInnerContainer">
+                <div id="sliderLabels">
+                    <span>1880</span>
+                    <span>2017</span>
+                </div>
+                <div id="rangeWrapper">
+                    <input id="slider" type="range" min="1880" max="2017" step="1" value="1984" />
+                </div>
+            </div>
+            <div id="playButton" class="esri-widget esri-widget-button toggle-button">
+                <div>
+                    <span class="toggle-button-icon esri-icon-play" aria-label="play icon"></span>          Play</div>
+                <div>
+                    <span class="toggle-button-icon esri-icon-pause" aria-label="pause icon"></span>          Pause</div>
+            </div>
+
+
+
+
+
+        <!--    <div id="timeInfo">
+                <div>CDOT Crashes in Northern Colorado <span id="daterange">Jan 2010 to Dec 2010</span> (Completion date)</div>
+                <div id="timeSliderDiv"></div>-->
+                <a href="https://icons8.com">Icon pack by Icons8</a>
+                </body>
+            </html>
