@@ -1,0 +1,101 @@
+var crashDate = new Date(
+    "{accident_d}".format ="mm/dd/yyyy");
+    var crashHour = new Date(
+    {hour_CRSH}.format = "hhmmc");
+    var incedentTime= crashDate + crashHour;
+var applicationDiv = document.getElementById("applicationDiv");
+    var slider = document.getElementById("slider");
+    var sliderValue = document.getElementById("sliderValue");
+    var playButton = document.getElementById("playButton");
+    var titleDiv = document.getElementById("titleDiv");
+    var animation = null;
+
+    function inputHandler() {
+        stopAnimation();
+        setYear(parseInt(slider.value));
+    }
+    slider.addEventListener("input", inputHandler);
+    slider.addEventListener("change", inputHandler);
+
+    playButton.addEventListener("click", function() {
+        if (playButton.classList.contains("toggled")) {
+            stopAnimation();
+        } else {
+            startAnimation();
+        }
+    });
+
+    view.ui.add(new Home({
+        view: view
+    }), "top-left");
+    view.ui.add(new Fullscreen({
+        view: view,
+        element: applicationDiv
+    }), "top-right");
+    view.whenLayerView(layer).then(setupHoverTooltip);
+
+    setYear(1265241600000);
+
+    function setMonth(value) {
+        sliderValue.innerHTML = Math.floor(value);
+        slider.value = Math.floor(value);
+        layer.renderer = createRenderer(value);
+    }
+    /**
+       * Returns a renderer with a color visual variable driven by the input
+       * year. The selected year will always render buildings built in that year
+       * with a light blue color. Buildings built 20+ years before the indicated
+       * year are visualized with a pink color. Buildings built within that
+       * 20-year time frame are assigned a color interpolated between blue and pink.
+
+    //accident_d was year
+    function createRenderer(accident_d) 
+    {
+        var opacityStops = [{
+            opacity: 1,
+            //value:year
+            value: month
+        }, 
+        {
+            opacity: 0,
+            //value:year+1
+            value: month + 1
+        }];
+
+        return {
+            type: "simple",
+            symbol: {
+                type: "simple-fill",
+                color: "rgb(0, 0, 0)",
+                outline: null
+            },
+            visualVariables: [{
+                type: "opacity",
+                field: "accident_d",
+                stops: opacityStops,
+                legendOptions: {
+                    showLegend: false
+                }
+            }, {
+                type: "color",
+                field: "addicent_d",
+                legendOptions: {
+                    title: "Incedent:"
+                },
+                stops: [{
+                    value: accident_d,
+                    color: "#0ff",
+                    label: "in " + Math.floor(accident_d)
+                }, {
+                    value: accident_d - 1,
+                    color: "#f0f",
+                    label: "in " + (Math.floor(accident_d - 2))
+                },{
+                            value: month - 5,
+                            color: "#404",
+                            label: "before " + (Math.floor(accident_d) - 5)
+                        }]
+            }]
+            };
+    }
+*/
